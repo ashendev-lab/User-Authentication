@@ -52,7 +52,7 @@ def register():
 
 
     Email = input("Please enter your email:\n")
-    while "@" and "gmail.com" not in Email:
+    while "@" and ("gmail.com" or "outlook.com" or "hotmail.com") not in Email:
         print("!!!Please enter a valid email!!!")
         Email = input("Please enter your email:\n")
         if "@" and "gmail.com" in Email:
@@ -161,4 +161,5 @@ print("Bye!")
 # while loginagain():
 #     login()
 #     displaydetails()
+
 
