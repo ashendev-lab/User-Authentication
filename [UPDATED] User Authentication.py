@@ -57,9 +57,11 @@ def register():
 
 
     Email = input("Please enter your email:\n")
+    Email = Email.lower()
     while "@gmail.com" not in Email:
         print("!!!Please enter a valid email!!!")
         Email = input("Please enter your email:\n")
+        Email = Email.lower()
         if "@" and "gmail.com" in Email:
             pass
 
