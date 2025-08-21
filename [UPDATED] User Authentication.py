@@ -7,7 +7,9 @@ USER_name = ""
 
 
 pass_word = []
+
 id_maker = str(random.randint(32134343, 54767474))
+
 id_num = []
 
 def login(user_name):
@@ -15,7 +17,7 @@ def login(user_name):
 
     try:
         with open(f'{user_name}.txt', 'r') as file:
-            sername_line = file.readline().strip()
+            surname_line = file.readline().strip()
             Email_line = file.readline().strip()
             Age_line = file.readline().strip()
             ID_line = file.readline().strip()
@@ -44,8 +46,9 @@ def login(user_name):
         print("-----------This ACCOUNT exists-----------")
         time.sleep(2)
         for sec in range(41, 0, -1):
-            time.sleep(0.5)
+            time.sleep(0.25)
             print("-", end="")
+        # print("\n✅✅✅✅✅ACCESS GRANTED✅✅✅✅✅")
         print("\n✅✅✅✅✅ACCESS GRANTED✅✅✅✅✅")
 
         return True
@@ -62,12 +65,13 @@ def register():
         print("!!!Please enter a valid email!!!")
         Email = input("Please enter your email:\n")
         Email = Email.lower()
-        if "@" and "gmail.com" in Email:
+        if "@gmail.com" in Email:
             pass
 
     Age = input("Enter your age:\n")
-    while (Age.isdigit() != True):
-            Age = input("Enter your age:\n")
+    while (Age.isdigit() != True) or (12 < int(Age) > 100):
+        print("...AGE MUST BE BETWEEN 12 AND 100...")
+        Age = input("Enter your age:\n")
 
     Password = input("Enter your new password:\n")
     while (8 >= len(Password) <= 16) or (Password.isalpha() == True) or (Password.isdigit() == True):
@@ -87,7 +91,7 @@ def register():
             time.sleep(1)
             print("......Creating ID......")
             time.sleep(2)
-            print("\nYour ID is " + f"{id_maker}")
+            print(f"\nYour ID is {id_maker} [...REMEMBER IT...]")
             id_num.append(id_maker)
             with open(f'{USER_name}.txt', 'w') as file1:
                 file1.write(f"{username}\n" + f"{Email}\n" + f"{Age}\n" + f"{id_num[0]}\n" + f"{pass_word[0]}")
@@ -138,6 +142,7 @@ if user == "yes":
     try:
 
         while username.isdigit() == True or username == "" or len(username) <= 4:
+            print("🙏🙏🙏 Enter a username that contains a minimum of 5 characters 🙏🙏🙏")
             username = input("Enter a username:\n")
 
         USER_name = username
@@ -157,7 +162,7 @@ if user == "yes":
     register()
 
 # if user == "no":
-#     USER_name = input("Ente")
+#     USER_name = input("Enter")
 
 while loginagain():
     USER_name = input("Enter a username: ")
